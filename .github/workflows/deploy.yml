@@ -4,9 +4,15 @@ on:
   push:
     branches: [main]
 
+# PRIMARY DEPLOYMENT = native cPanel Git (push deployment).
+# This FTP workflow is a FALLBACK only. It stays disabled (skipped) unless
+# the FTP_* secrets are configured. Do not enable unless native Git fails.
+# Set FTP_SERVER / FTP_USERNAME / FTP_PASSWORD / FTP_TARGET to activate it.
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: ${{ secrets.FTP_SERVER != '' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
