@@ -1,0 +1,33 @@
+# KorTechX — clean URLs (no .html in the address bar / links)
+Options -MultiViews
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 1) 301 any old .html URL to its clean extensionless version
+  #    (keeps rankings + existing bookmarks working after the switch)
+  RewriteCond %{THE_REQUEST} \.html[?\s]
+  RewriteRule ^(.+)\.html$ $1 [R=301,L]
+
+  # 2) Internally serve page.html when /page is requested
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
+
+# --- Performance (Master Website Blueprint: gzip + cache headers) ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json text/xml application/xml image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/png  "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType image/x-icon "access plus 30 days"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+</IfModule>

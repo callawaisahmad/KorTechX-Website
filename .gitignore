@@ -1,0 +1,8 @@
+# Build tooling & source data - not part of the deployable site
+DO NOT UPLOAD/
+
+# Local temp stuff
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
