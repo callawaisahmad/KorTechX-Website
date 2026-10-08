@@ -1,0 +1,31 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/ybrumpritm/kortechx.com
+    - rm -rf $DEPLOYPATH/pages
+    - /bin/cp -R pages $DEPLOYPATH
+    - /bin/cp -R css $DEPLOYPATH
+    - /bin/cp -R js $DEPLOYPATH
+    - /bin/cp -R assets $DEPLOYPATH
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp about.html $DEPLOYPATH
+    - /bin/cp blog.html $DEPLOYPATH
+    - /bin/cp calculator.html $DEPLOYPATH
+    - /bin/cp contact.html $DEPLOYPATH
+    - /bin/cp cookies.html $DEPLOYPATH
+    - /bin/cp portfolio.html $DEPLOYPATH
+    - /bin/cp privacy.html $DEPLOYPATH
+    - /bin/cp service-ai-automation.html $DEPLOYPATH
+    - /bin/cp service-digital-marketing.html $DEPLOYPATH
+    - /bin/cp service-plugin-development.html $DEPLOYPATH
+    - /bin/cp service-seo.html $DEPLOYPATH
+    - /bin/cp service-web-desktop-apps.html $DEPLOYPATH
+    - /bin/cp service-web-development.html $DEPLOYPATH
+    - /bin/cp services.html $DEPLOYPATH
+    - /bin/cp terms.html $DEPLOYPATH
+    - /bin/cp thank-you.html $DEPLOYPATH
+    - /bin/cp robots.txt $DEPLOYPATH
+    - /bin/cp sitemap.xml $DEPLOYPATH
+    - /bin/cp site.webmanifest $DEPLOYPATH
+    - /bin/cp google28459503c44af292.html $DEPLOYPATH
+    - /bin/cp .htaccess $DEPLOYPATH
